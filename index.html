@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prateek Priyadarshi | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Navbar */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #222;
+      padding: 10px 20px;
+      z-index: 1000;
+    }
+
+    #navbar ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    #navbar li {
+      margin: 0 15px;
+    }
+
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #navbar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Welcome Section */
+    #welcome-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      background: linear-gradient(to right, #6dd5ed, #2193b0);
+      color: white;
+      text-align: center;
+    }
+
+    #welcome-section h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 60px 20px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    #projects h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+
+    .project-tile {
+      background-color: #e0e0e0;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      transition: transform 0.3s ease;
+    }
+
+    .project-tile:hover {
+      transform: scale(1.02);
+    }
+
+    .project-tile a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .project-tile h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #navbar ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #welcome-section h1 {
+        font-size: 2em;
+      }
+
+      .project-tile {
+        margin: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#welcome-section">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a id="profile-link" href="https://scratch.mit.edu/users/testerofscratchcode/" target="_blank">Scratch Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="welcome-section">
+    <h1>Hi, I'm Prateek Priyadarshi</h1>
+    <p>
+      I started coding in second grade and never stopped. From building games to crafting full-stack apps, I love turning ideas into reality with clean, creative code.
+    </p>
+    <p>
+      I specialize in web development, automation, and hardware integration. Whether it's JavaScript, Python, or Arduino, I dive deep and build smart.
+    </p>
+    <p>
+      I also share my creations on Scratch—check out my interactive projects and game logic experiments!
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-tile">
+      <a href="https://github.com/prateekpriyadarshi/flood-detector" target="_blank">
+        <h3>Flood Detector with Arduino</h3>
+        <p>Ultrasonic sensor + LCD + buzzer = smart water-level alert system.</p>
+      </a>
+    </div>
+    <div class="project-tile">
+      <a href="https://prateekpriyadarshi.github.io/custom-portfolio-site" target="_blank">
+        <h3>Custom Portfolio Site</h3>
+        <p>Built with HTML, CSS, and JavaScript. Fully responsive and stylish.</p>
+      </a>
+    </div>
+    <div class="project-tile">
+      <a href="https://github.com/prateekpriyadarshi/offline-ai-assistant" target="_blank">
+        <h3>Offline AI Assistant</h3>
+        <p>Runs from a pendrive. Lightweight, private, and portable.</p>
+      </a>
+    </div>
+  </section>
+</body>
+</html>
