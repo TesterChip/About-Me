@@ -4,72 +4,107 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prateek Priyadarshi | Nirban Deep Singh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+
+    :root {
+      --gradient-start: #4f46e5;
+      --gradient-middle: #7c3aed;
+      --gradient-end: #06b6d4;
+      --glass-bg: rgba(255,255,255,0.1);
+      --glass-border: rgba(255,255,255,0.2);
+      --accent-gold: #f59e0b;
+      --accent-orange: #f97316;
+    }
+
+    body.dark {
+      --gradient-start: #1e1b4b;
+      --gradient-middle: #312e81;
+      --gradient-end: #1e40af;
+      --glass-bg: rgba(0,0,0,0.2);
+      --glass-border: rgba(255,255,255,0.1);
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+      background-attachment: fixed;
+      color: #fff;
       line-height: 1.6;
-      background-color: #f4f4f4;
-      color: #333;
     }
 
     /* Navbar */
     #navbar {
-      position: fixed;
+      position: sticky;
       top: 0;
       width: 100%;
-      background-color: #222;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
       padding: 10px 20px;
       z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     #navbar ul {
       display: flex;
-      justify-content: center;
       list-style: none;
-    }
-
-    #navbar li {
-      margin: 0 15px;
+      gap: 1rem;
     }
 
     #navbar a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      transition: all 0.3s;
     }
 
     #navbar a:hover {
-      text-decoration: underline;
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
     }
 
-    /* Welcome Section */
-    #welcome-section {
-      height: 100vh;
+    .theme-toggle {
+      background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    /* Welcome Sections */
+    .welcome {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 40px;
-      background: linear-gradient(to right, #6dd5ed, #2193b0);
-      color: white;
       text-align: center;
+      padding: 40px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin: 40px auto;
+      max-width: 1000px;
     }
 
-    #welcome-section h1 {
+    .welcome h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
     }
 
-    /* Projects Section */
+    /* Projects */
     #projects {
       padding: 60px 20px;
-      background-color: #fff;
       text-align: center;
     }
 
@@ -79,119 +114,115 @@
     }
 
     .project-tile {
-      background-color: #e0e0e0;
-      margin: 20px auto;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
       padding: 20px;
-      border-radius: 8px;
+      margin: 20px auto;
       max-width: 600px;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      color: #fff;
     }
 
     .project-tile:hover {
-      transform: scale(1.02);
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.15);
     }
 
     .project-tile a {
       text-decoration: none;
-      color: #333;
+      color: #fff;
     }
 
-    .project-tile h3 {
+    .project-tile i {
+      font-size: 2rem;
       margin-bottom: 10px;
+      display: block;
+      color: var(--accent-gold);
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
-      #navbar ul {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #welcome-section h1 {
-        font-size: 2em;
-      }
-
-      .project-tile {
-        margin: 20px 10px;
-      }
+      #navbar ul {flex-direction: column; align-items: center;}
+      .welcome h1 {font-size: 2em;}
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav id="navbar">
     <ul>
-      <li><a href="#welcome-section">About</a></li>
+      <li><a href="#about1">About</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a id="profile-link" href="https://scratch.mit.edu/users/testerofscratchcode/" target="_blank">Scratch Profile</a></li>
-      <li><a id="profile-link" href="https://testerchip.com/" target="_blank">Tester Chip</a></li>
+      <li><a href="https://scratch.mit.edu/users/testerofscratchcode/" target="_blank">Scratch Profile</a></li>
+      <li><a href="https://testerchip.com/" target="_blank">Tester Chip</a></li>
     </ul>
+    <button class="theme-toggle" onclick="toggleTheme()"><i id="theme-icon" class="fas fa-moon"></i></button>
   </nav>
 
-  <!-- Welcome Section -->
-  <section id="welcome-section">
+  <section id="about1" class="welcome">
     <h1>Hi, I'm Prateek Priyadarshi</h1>
-    <p>
-      I started coding in eighth grade and never stopped. From building games to crafting web-sites, I love turning ideas into reality with clean, creative code.
-    </p>
-    <p>
-      I'm capable in web development, automation, and hardware integration. Whether it's JavaScript, Python, or Arduino, I dive deep, troubleshoot creatively, and build smart solutions.
-    </p>
-    <p>
-      I also share my creations on Scratch—check out my interactive projects and game logic experiments!
-    </p>
+    <p>I started coding in eighth grade and never stopped...</p>
+    <p>I'm capable in web development, automation, and hardware integration...</p>
+    <p>I also share my creations on Scratch...</p>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects">
     <h2>My Projects</h2>
     <div class="project-tile">
+      <i class="fas fa-water"></i>
       <a href="https://github.com/Testerofscratchcode/Flood-Detector-With-Arduino" target="_blank">
         <h3>Flood Detector with Arduino</h3>
-        <p>Ultrasonic sensor + LCD + buzzer = smart water-level alert system.</p>
+        <p>Ultrasonic sensor + LCD + buzzer...</p>
       </a>
     </div>
     <div class="project-tile">
-      <a href="https://testerofscratchcode.github.io/testerofscratchcode-website-desktop-pro-3/testerofscratchcode_1.html " target="_blank">
+      <i class="fas fa-laptop-code"></i>
+      <a href="https://testerofscratchcode.github.io/testerofscratchcode-website-desktop-pro-3/testerofscratchcode_1.html" target="_blank">
         <h3>Custom Portfolio Site</h3>
-        <p>Built with HTML, CSS, and JavaScript. Fully responsive and stylish.</p>
+        <p>Built with HTML, CSS, and JavaScript...</p>
       </a>
     </div>
     <div class="project-tile">
+      <i class="fas fa-code"></i>
       <a href="https://scratch.mit.edu/users/testerofscratchcode/" target="_blank">
         <h3>Scratch Code</h3>
-        <p>I am also an block coder I love block codeing and I have Scratch Code ID.</p>
+        <p>I am also a block coder...</p>
       </a>
     </div>
   </section>
-  <section id="welcome-section">
-  <h1>Hi, I'm Nirban Deep Singh</h1>
-  <p>
-    I'm a class 8 student who recently started learning coding and digital skills. I’m still a beginner, but I love exploring how things work and trying out new ideas.
-  </p>
-  <p>
-    I’ve started learning the basics of programming and marketing. Whether it’s writing simple code or understanding how to share ideas online, I’m always excited to learn more.
-  </p>
-  <p>
-    I also run a YouTube channel where I share my journey of solving 3x3 Rubik’s Cubes—tips, tricks, and fun challenges. It’s a space where I mix logic, speed, and creativity while connecting with other puzzle lovers.
-  </p>
+
+  <section class="welcome">
+    <h1>Hi, I'm Nirban Deep Singh</h1>
+    <p>I'm a class 8 student who recently started learning coding...</p>
+    <p>I’ve started learning the basics of programming and marketing...</p>
+    <p>I also run a YouTube channel...</p>
   </section>
+
   <section id="projects">
     <h2>My Projects</h2>
     <div class="project-tile">
-      <a href="https://youtube.com/@masterincubing?si=ZWCPruRc22xQgtWM " target="_blank">
+      <i class="fab fa-youtube"></i>
+      <a href="https://youtube.com/@masterincubing" target="_blank">
         <h3>My YouTube Channel</h3>
-        <p>Hi everyone! I make unique videos that help you learn about the flags of different countries and empires.</p>
+        <p>Videos about the flags of countries and empires...</p>
+      </a>
     </div>
-
-    
     <div class="project-tile">
-  <a href="https://github.com/TesterChip/lanikea-by-nirban" target="_blank">
-    <h3>Laniakea Supercluster Presentation</h3>
-    <p>
-      This project dives into the Laniakea Supercluster—a vast cosmic structure that includes our Milky Way and around 100,000 other galaxies. Spanning 520 million light-years and containing roughly 10¹⁷ solar masses, it reflects Nirban’s growing curiosity about space and science.
-    </p>
-  </a>
-</div>
+      <i class="fas fa-galaxy"></i>
+      <a href="https://github.com/TesterChip/lanikea-by-nirban" target="_blank">
+        <h3>Laniakea Supercluster Presentation</h3>
+        <p>This project dives into the Laniakea Supercluster...</p>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    let isDark = false;
+    function toggleTheme() {
+      isDark = !isDark;
+      document.body.classList.toggle('dark', isDark);
+      document.getElementById('theme-icon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  </script>
 </body>
 </html>
